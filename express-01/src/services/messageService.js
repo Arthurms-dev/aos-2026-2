@@ -21,9 +21,17 @@ const deleteMessage = async (id) => {
   });
 };
 
+const updateMessage = async (id, data) => {
+  const message = await models.Message.findByPk(id);
+  if (!message) return null;
+  
+  return await message.update(data);
+};
+
 export default {
   getAllMessages,
   getMessageById,
   createMessage,
   deleteMessage,
+  updateMessage,
 };

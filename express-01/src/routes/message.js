@@ -7,5 +7,6 @@ router.get("/", messageController.getMessages);
 router.get("/:messageId", messageController.getMessage);
 router.post("/", messageController.createMessage);
 router.delete("/:messageId", messageController.deleteMessage);
+router.put("/:messageId", messageController.updateMessage);
 
 export default router;

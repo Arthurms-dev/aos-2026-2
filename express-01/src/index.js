@@ -27,6 +27,7 @@ app.get("/", (req, res) => {
 app.use("/session", routes.session);
 app.use("/users", routes.user);
 app.use("/messages", routes.message);
+app.use("/portfolio", routes.portfolio); 
 
 const port = process.env.PORT || 3000;
 

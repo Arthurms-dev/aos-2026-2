@@ -21,6 +21,19 @@ const getUser = async (req, res) => {
   }
 };
 
+const getUserCurriculum = async (req, res) => {
+  try {
+    const curriculum = await userService.getUserCurriculumById(req.params.userId);
+    if (!curriculum) {
+      return res.status(404).send({ error: "Currículo não encontrado para este usuário." });
+    }
+    return res.status(200).send(curriculum);
+  } catch (error) {
+    console.error("ERRO NO CURRÍCULO:", error);
+    return res.status(500).send({ error: "Erro interno ao buscar o currículo." });
+  }
+};
+
 const createUser = async (req, res) => {
   try {
     if (!req.body || Object.keys(req.body).length === 0) {
@@ -77,6 +90,7 @@ const deleteUser = async (req, res) => {
 export default {
   getUsers,
   getUser,
+  getUserCurriculum,
   createUser,
   updateUser,
   deleteUser,

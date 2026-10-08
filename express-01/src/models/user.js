@@ -16,10 +16,25 @@ const getUserModel = (sequelize, { DataTypes }) => {
         notEmpty: true,
       },
     },
+    
+    nome: {
+      type: DataTypes.STRING(100),
+      allowNull: true, 
+    },
+    telefone: {
+      type: DataTypes.STRING(20),
+    },
+    resumo_sobre: {
+      type: DataTypes.TEXT,
+    },
   });
 
   User.associate = (models) => {
     User.hasMany(models.Message, { onDelete: "CASCADE" });
+
+    User.hasMany(models.AcademicExperience, { foreignKey: "user_id", onDelete: "CASCADE" });
+    User.hasMany(models.ProfessionalExperience, { foreignKey: "user_id", onDelete: "CASCADE" });
+    User.hasMany(models.Project, { foreignKey: "user_id", onDelete: "CASCADE" });
   };
 
   User.findByLogin = async (login) => {

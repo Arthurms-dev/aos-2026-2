@@ -1,3 +1,9 @@
-export { default as corsMiddleware } from "./cors.js";
-export { default as logMiddleware } from "./log.js";
-export { default as contextMiddleware } from "./context.js";
+import { corsMiddleware } from "./cors.js";
+import logMiddleware from "./log.js";
+import contextMiddleware from "./context.js";
+
+export {
+  corsMiddleware,
+  logMiddleware,
+  contextMiddleware,
+};

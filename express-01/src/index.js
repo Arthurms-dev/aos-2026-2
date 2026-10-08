@@ -8,10 +8,13 @@ import {
 } from "./middlewares/index.js";
 import * as routes from "./routes/index.js";
 import errorHandler from "./middlewares/errorHandler.js";
+import helmet from "helmet";
 
 const app = express();
 
 app.set("trust proxy", true);
+
+app.use(helmet());
 
 // middlewares
 app.use(corsMiddleware);
@@ -38,7 +41,7 @@ const eraseDatabaseOnSync = process.env.ERASE_DATABASE_ON_SYNC === "true";
 const syncDatabase = process.env.SYNC_DATABASE === "true" || eraseDatabaseOnSync;
 
 const startServer = () => {
-  app.listen(port, () => console.log(`Servidor a escutar na porta ${port}!`));
+  app.listen(port, () => console.log(`Servidor rodando na porta ${port}!`));
 };
 
 if (syncDatabase) {

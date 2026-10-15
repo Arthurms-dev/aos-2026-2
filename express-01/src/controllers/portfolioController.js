@@ -85,33 +85,24 @@ const getProjetos = async (req, res) => {
     const projetos = [
       { 
         id: '1', 
-        nome: 'Kora-IA', 
-        descricao: 'Sistema web para elaboração automática de relatórios de acompanhamento físico-financeiro de convênios. O usuário anexa PDFs contendo informações, e o sistema extrai, analisa e elabora os relatórios para os setores DITRE/PE e COTRE/PE.', 
-        tech: 'React, Node.js, Express, Tailwind CSS, PostgreSQL' 
+        nome: 'ChronoTask', 
+        descricao: 'Gerenciador de tarefas departamental. Permite à chefia designar e controlar demandas em tempo real, além de contar com chat interno, calendário dinâmico, filtros avançados e extração de planilhas.', 
+        tech: 'React, Node.js, Express, Tailwind CSS',
+        imagem: 'https://i.imgur.com/hP7jXjE.png'
       },
       { 
         id: '2', 
-        nome: 'ChronoTask', 
-        descricao: 'Gerenciador de tarefas departamental. Permite à chefia designar e controlar demandas em tempo real, além de contar com chat interno, calendário dinâmico, filtros avançados e extração de planilhas.', 
-        tech: 'React, Node.js, Express, Tailwind CSS' 
+        nome: 'Dashboard - Sismob', 
+        descricao: 'Dashboard interativo para acompanhamento de obras voltadas à saúde. Possui mapas por município, gráficos, tabelas e um sistema de importação de planilhas que atualiza as métricas automaticamente.', 
+        tech: 'React, Node.js, Express, Tailwind CSS',
+        imagem: 'https://i.imgur.com/9zZVemS.png'
       },
       { 
         id: '3', 
-        nome: 'Plataforma Web - Imobiliária Place Brokers', 
-        descricao: 'Projeto desenhado com duração de 1 ano para redesenhar a infraestrutura da imobiliária. O escopo abrange modelos de construção interativos em 3D, portal administrativo robusto e conexão via API com sistemas de tickets.', 
-        tech: 'Three.js, React Three Fiber, WebGL, PostgreSQL' 
-      },
-      { 
-        id: '4', 
-        nome: 'Dashboard - Sismob', 
-        descricao: 'Dashboard interativo para acompanhamento de obras voltadas à saúde. Possui mapas por município, gráficos, tabelas e um sistema de importação de planilhas que atualiza as métricas automaticamente.', 
-        tech: 'React, Node.js, Express, Tailwind CSS' 
-      },
-      { 
-        id: '5', 
         nome: 'Dashboard - Monitoramento de Convênios', 
         descricao: 'Dashboard gerencial construído para acompanhamento detalhado da situação de convênios dos setores COTRE/PE e DITRE/PE, contando com indicadores complexos e mapa situacional.', 
-        tech: 'Power BI' 
+        tech: 'Power BI / React, Node.js, Express, Tailwind CSS',
+        imagem: 'https://i.imgur.com/YrRSL7i.png'
       }
     ];
     return res.status(200).json(projetos);

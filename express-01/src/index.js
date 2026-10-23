@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(limiter);
 app.use(logMiddleware);
-app.use(contextMiddleware);
+// app.use(contextMiddleware);
 
 // rotas
 app.get("/", (req, res) => {

@@ -1,20 +1,20 @@
-const rateLimit = require('express-rate-limit');
-const AppError = require('../utils/appError'); 
+import rateLimit from 'express-rate-limit';
+import AppError from '../utils/appError.js'; 
 
-const limiter = rateLimit({
+export const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, 
-  limit: 100,
+  limit: 100, 
   standardHeaders: 'draft-7',
   legacyHeaders: false,
-  validate: { trustProxy: false }, 
+  validate: { trustProxy: false },
   handler: (req, res, next) => {
     next(new AppError("Muitas requisições originadas deste IP. Tente novamente em 15 minutos.", 429));
   }
 });
 
-const authLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, 
-  limit: 5, 
+export const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 5,
   standardHeaders: 'draft-7',
   legacyHeaders: false,
   validate: { trustProxy: false },
@@ -22,5 +22,3 @@ const authLimiter = rateLimit({
     next(new AppError("Muitas tentativas de autenticação originadas deste IP. Tente novamente em 15 minutos.", 429));
   }
 });
-
-module.exports = { limiter, authLimiter };

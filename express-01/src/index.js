@@ -5,6 +5,7 @@ import {
   corsMiddleware,
   logMiddleware,
   contextMiddleware,
+  limiter
 } from "./middlewares/index.js";
 import * as routes from "./routes/index.js";
 import errorHandler from "./middlewares/errorHandler.js";
@@ -20,6 +21,7 @@ app.use(helmet());
 app.use(corsMiddleware);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(limiter);
 app.use(logMiddleware);
 app.use(contextMiddleware);
 
@@ -28,11 +30,10 @@ app.get("/", (req, res) => {
   return res.status(200).send("Servidor express a executar...");
 });
 
-app.use("/session", routes.session);
+app.use("/session", routes.session); 
 app.use("/users", routes.user);
 app.use("/messages", routes.message);
 app.use("/portfolio", routes.portfolio); 
-
 app.use(errorHandler);
 
 const port = process.env.PORT || 3000;

@@ -1,8 +1,8 @@
-const jwt = require('jsonwebtoken');
-const models = require('../models');
-const AppError = require('../utils/AppError');
+import jwt from "jsonwebtoken";
+import models from "../models/index.js";
+import AppError from "../utils/appError.js";
 
-module.exports = async (req, res, next) => {
+const authMiddleware = async (req, res, next) => {
   try {
     const authHeader = req.headers.authorization;
 
@@ -31,3 +31,5 @@ module.exports = async (req, res, next) => {
     return next(error);
   }
 };
+
+export default authMiddleware;

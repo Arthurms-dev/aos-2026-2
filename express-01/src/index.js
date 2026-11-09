@@ -1,10 +1,9 @@
-import "dotenv/config";
+import 'dotenv/config';
 import express from "express";
 import models, { sequelize } from "./models/index.js";
 import {
   corsMiddleware,
   logMiddleware,
-  contextMiddleware,
   limiter
 } from "./middlewares/index.js";
 import * as routes from "./routes/index.js";

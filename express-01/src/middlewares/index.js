@@ -1,10 +1,11 @@
 import { corsMiddleware } from "./cors.js";
 import logMiddleware from "./log.js";
-import contextMiddleware from "./context.js";
-export { limiter, authLimiter } from './rateLimiter.js';
+import authMiddleware from "./auth.js";
+export { limiter, authLimiter as authLimiterMiddleware } from './rateLimiter.js';
 
 export {
   corsMiddleware,
   logMiddleware,
-  contextMiddleware,
+  authMiddleware,
+  authLimiterMiddleware,
 };

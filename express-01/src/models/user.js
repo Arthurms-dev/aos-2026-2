@@ -18,7 +18,6 @@ const getUserModel = (sequelize, { DataTypes }) => {
         notEmpty: true,
       },
     },
-    
     nome: {
       type: DataTypes.STRING(100),
       allowNull: true, 
@@ -35,7 +34,9 @@ const getUserModel = (sequelize, { DataTypes }) => {
       validate: {
         len: [7, 42]
       },
-    },
+    }
+  }, {
+    
     hooks: {
       beforeCreate: async (user) => {
         if(user.password) {
